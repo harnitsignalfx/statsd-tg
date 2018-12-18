@@ -117,13 +117,6 @@ static int sock_open (void) /* {{{ */
   ai_hints.ai_family = AF_UNSPEC;
   ai_hints.ai_socktype = SOCK_DGRAM;
 
-  status = getaddrinfo (conf_node, conf_service, &ai_hints, &ai_list);
-  if (status != 0)
-  {
-    fprintf (stderr, "getaddrinfo failed: %s\n", gai_strerror (status));
-    exit (EXIT_FAILURE);
-  }
-
   for (ai_ptr = ai_list; ai_ptr != NULL; ai_ptr = ai_ptr->ai_next)
   {
     int fd;
